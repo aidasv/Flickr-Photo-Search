@@ -6,9 +6,11 @@
   <%= submit_tag 'Search' %>
 <% end %>
 
-<% @photos.each do |photo| %>
-  <%= image_tag FlickRaw.url(photo) %>
-<% end %>
+<div id="my-photos">
+  <% @photos.each do |photo| %>  
+    <%= render partial: "photo", locals: {photo: photo } %>
+  <% end %>
+</div>
 
 <div id="infinite-scrolling">
   <%= will_paginate @photos if session[:search_tag].present? %>
