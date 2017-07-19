@@ -1,0 +1,15 @@
+<h1>Welcome#index</h1>
+<p>Find me in app/views/welcome/index.html.erb</p>
+
+<%= form_tag(search_path) do %>
+  <%= text_field_tag :search_tag %>
+  <%= submit_tag 'Search' %>
+<% end %>
+
+<% @photos.each do |photo| %>
+  <%= image_tag FlickRaw.url(photo) %>
+<% end %>
+
+<div id="infinite-scrolling">
+  <%= will_paginate @photos if session[:search_tag].present? %>
+</div>
