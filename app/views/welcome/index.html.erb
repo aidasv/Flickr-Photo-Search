@@ -1,16 +1,17 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
 
-<%= form_tag(search_path) do %>
-  <%= text_field_tag :search_tag %>
-  <%= submit_tag 'Search' %>
-<% end %>
-
-<div id="my-photos">
-  <% @photos.each do |photo| %>  
-    <%= render partial: "photo", locals: {photo: photo } %>
+<div class="container">
+  <%= form_tag(search_path) do %>
+    <%= text_field_tag :search_tag, nil,  placeholder: "Enter search tag", class: "input-lg" %>
+    <%= submit_tag 'Search', class: "btn, btn-lg" %>
   <% end %>
 </div>
+
+  <div id="my-photos">
+    <% @photos.each do |photo| %>
+        <%= render partial: "photo", locals: {photo: photo } %>
+    <% end %>
+  </div>
+
 
 <div id="infinite-scrolling">
   <%= will_paginate @photos if session[:search_tag].present? %>

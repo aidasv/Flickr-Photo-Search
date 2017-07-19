@@ -1,1 +1,8 @@
-<%= image_tag FlickRaw.url(photo) %>
+<div class="row">
+  <div class="col-sm-6">
+    <%= image_tag FlickRaw.url_b(photo[0]), class: "img-thumbnail", size: "500x500" %>
+  </div>
+  <div class="col-sm-6">
+    <%= image_tag FlickRaw.url_b(photo[1]), class: "img-thumbnail", size: "500x500" %>
+  </div>
+</div>
