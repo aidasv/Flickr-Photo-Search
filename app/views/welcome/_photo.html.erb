@@ -1,12 +1,9 @@
 <div class="row">
-  <div class="col-sm-6">
-    <a href="<%=FlickRaw.url_b(photo[0])%>" data-lightbox="image-1">
-      <%= image_tag FlickRaw.url_b(photo[0]), class: "img-thumbnail", size: "500x500" %>
-    </a>
-  </div>
-  <div class="col-sm-6">
-    <a href="<%=FlickRaw.url_b(photo[1])%>" data-lightbox="image-1">
-      <%= image_tag FlickRaw.url_b(photo[1]), class: "img-thumbnail", size: "500x500" %>
-    </a>
-  </div>
+  <% photo.each_with_index do |image| %>
+    <div class="col-sm-2">
+      <a href="<%=FlickRaw.url_b(image)%>" data-lightbox="image-1">
+        <%= image_tag FlickRaw.url_q(image), class: "img-thumbnail", size: "150x150" %>
+      </a>
+    </div>
+  <% end %>
 </div>
