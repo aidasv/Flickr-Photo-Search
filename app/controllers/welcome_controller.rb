@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    if session[:search_tag].present?
+    if session[:search_tag].present? && session[:search_tag] != "0"
       @photos = flickr.photos.search(tags: session[:search_tag], per_page: 480).
                 to_a.in_groups_of(6).paginate(page: params[:page], per_page: 10)
       respond_to do |format|
